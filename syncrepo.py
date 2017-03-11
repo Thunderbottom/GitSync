@@ -46,7 +46,7 @@ def gitSync(repoURL, workDir):
     workDir += repo
     # Pull first
     print(workDir)
-    os.system('git -C ' + workDir + ' pull origin master ')  # &> /dev/null')
+    os.system('git -C ' + workDir + ' pull origin master &> /dev/null')
     # Check if argument to commit has been passed
     if commitAll:
         with open('commit.txt', 'r') as commit:
