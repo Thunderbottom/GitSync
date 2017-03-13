@@ -68,7 +68,6 @@ def gitSyncFork(repoURL, workDir):
     path = gitURL[1]
     user, repo = path.split("/")
     workDir += repo
-    print(os.getcwd())
     print("Updating fork from parent source", "\n")
     url = "https://api.github.com/repos/{}/{}".format(user, repo)
     req = requests.get(url)
@@ -81,9 +80,11 @@ def gitSyncFork(repoURL, workDir):
     os.system('git -C ' + workDir + '/ remote -v &> /dev/null')
     print("Fetching upstream...", "\n")
     os.system('git -C ' + workDir + '/ fetch upstream &> /dev/null')
-    print("Merging upstream and master", "\n")
+    print("Merging upstream and master...", "\n")
     os.system('git -C ' + workDir + '/ merge upstream/master &> /dev/null')
-    print("Fork updated.")
+    print("Updating remote fork...", "\n")
+    os.system('git -C ' + workDir + '/ push origin master &> /dev/null')
+    print("Fork updated!")
 
 
 
