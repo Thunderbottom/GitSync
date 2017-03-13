@@ -48,7 +48,7 @@ optional arguments:
 ## TODO
 
   * Clean up code
-  * Allow user to sync only select repositories
+  * Allow user to sync only the selected repositories
 
 
 
